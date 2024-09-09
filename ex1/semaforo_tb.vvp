@@ -1,0 +1,72 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "c:\iverilog\lib\ivl\system.vpi";
+:vpi_module "c:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "c:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "c:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "c:\iverilog\lib\ivl\va_math.vpi";
+S_000001db0a4bb930 .scope module, "semaforo_tb" "semaforo_tb" 2 4;
+ .timescale -9 -9;
+v000001db0a3c37c0_0 .var "A", 0 0;
+v000001db0a3c3860_0 .var "B", 0 0;
+v000001db0a3c3900_0 .net "verA", 0 0, L_000001db0a4b9a40;  1 drivers
+v000001db0a3c39a0_0 .net "verB", 0 0, L_000001db0a40c8d0;  1 drivers
+v000001db0a3c3a40_0 .net "verdA", 0 0, L_000001db0a3c5f30;  1 drivers
+v000001db0a40bda0_0 .net "verdB", 0 0, L_000001db0a40c860;  1 drivers
+S_000001db0a3c5b20 .scope module, "uut" "semaforo_gate" 2 8, 3 1 0, S_000001db0a4bb930;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /OUTPUT 1 "verdA";
+    .port_info 3 /OUTPUT 1 "verA";
+    .port_info 4 /OUTPUT 1 "verdB";
+    .port_info 5 /OUTPUT 1 "verB";
+L_000001db0a3c5f30 .functor BUFZ 1, v000001db0a3c37c0_0, C4<0>, C4<0>, C4<0>;
+L_000001db0a4b8e60 .functor NOT 1, v000001db0a3c37c0_0, C4<0>, C4<0>, C4<0>;
+L_000001db0a4b9a40 .functor AND 1, L_000001db0a4b8e60, v000001db0a3c3860_0, C4<1>, C4<1>;
+L_000001db0a4bbf50 .functor NOT 1, v000001db0a3c37c0_0, C4<0>, C4<0>, C4<0>;
+L_000001db0a40c860 .functor AND 1, L_000001db0a4bbf50, v000001db0a3c3860_0, C4<1>, C4<1>;
+L_000001db0a40c8d0 .functor BUFZ 1, v000001db0a3c37c0_0, C4<0>, C4<0>, C4<0>;
+v000001db0a4b99a0_0 .net "A", 0 0, v000001db0a3c37c0_0;  1 drivers
+v000001db0a4b6d10_0 .net "B", 0 0, v000001db0a3c3860_0;  1 drivers
+v000001db0a4b8dc0_0 .net *"_ivl_2", 0 0, L_000001db0a4b8e60;  1 drivers
+v000001db0a3c5cb0_0 .net *"_ivl_6", 0 0, L_000001db0a4bbf50;  1 drivers
+v000001db0a3c5d50_0 .net "verA", 0 0, L_000001db0a4b9a40;  alias, 1 drivers
+v000001db0a3c5df0_0 .net "verB", 0 0, L_000001db0a40c8d0;  alias, 1 drivers
+v000001db0a3c5e90_0 .net "verdA", 0 0, L_000001db0a3c5f30;  alias, 1 drivers
+v000001db0a3c3720_0 .net "verdB", 0 0, L_000001db0a40c860;  alias, 1 drivers
+    .scope S_000001db0a4bb930;
+T_0 ;
+    %vpi_call 2 11 "$dumpfile", "semaforo_tb.vcd" {0 0 0};
+    %vpi_call 2 12 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001db0a4bb930 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001db0a3c37c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001db0a3c3860_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001db0a3c37c0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001db0a3c3860_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001db0a3c37c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001db0a3c3860_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001db0a3c37c0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001db0a3c3860_0, 0, 1;
+    %delay 20, 0;
+    %vpi_call 2 19 "$display", "Teste completo" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "semaforo_tb.v";
+    "./semaforo_gate.v";

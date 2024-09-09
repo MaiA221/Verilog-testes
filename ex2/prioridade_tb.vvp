@@ -1,0 +1,90 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "c:\iverilog\lib\ivl\system.vpi";
+:vpi_module "c:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "c:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "c:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "c:\iverilog\lib\ivl\va_math.vpi";
+S_000002362f9abdc0 .scope module, "prioridade_tb" "prioridade_tb" 2 4;
+ .timescale -9 -9;
+v000002362f872fa0_0 .var "A", 0 0;
+v000002362f873040_0 .net "ALE", 0 0, L_000002362f8bc620;  1 drivers
+v000002362f8730e0_0 .var "B", 0 0;
+v000002362f873180_0 .net "PC", 0 0, L_000002362f9aa7c0;  1 drivers
+v000002362f874030_0 .net "TV", 0 0, L_000002362f875ca0;  1 drivers
+S_000002362f875890 .scope module, "uut" "prioridade_gate" 2 8, 3 1 0, S_000002362f9abdc0;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /OUTPUT 1 "TV";
+    .port_info 3 /OUTPUT 1 "PC";
+    .port_info 4 /OUTPUT 1 "ALE";
+L_000002362f875ca0 .functor BUFZ 1, v000002362f872fa0_0, C4<0>, C4<0>, C4<0>;
+L_000002362f878e80 .functor NOT 1, v000002362f872fa0_0, C4<0>, C4<0>, C4<0>;
+L_000002362f9aa7c0 .functor AND 1, L_000002362f878e80, v000002362f8730e0_0, C4<1>, C4<1>;
+L_000002362f8743a0 .functor NOT 1, v000002362f872fa0_0, C4<0>, C4<0>, C4<0>;
+L_000002362f874230 .functor NOT 1, v000002362f8730e0_0, C4<0>, C4<0>, C4<0>;
+L_000002362f8bc620 .functor AND 1, L_000002362f8743a0, L_000002362f874230, C4<1>, C4<1>;
+v000002362f9aa720_0 .net "A", 0 0, v000002362f872fa0_0;  1 drivers
+v000002362f9a6d10_0 .net "ALE", 0 0, L_000002362f8bc620;  alias, 1 drivers
+v000002362f878de0_0 .net "B", 0 0, v000002362f8730e0_0;  1 drivers
+v000002362f875a20_0 .net "PC", 0 0, L_000002362f9aa7c0;  alias, 1 drivers
+v000002362f875ac0_0 .net "TV", 0 0, L_000002362f875ca0;  alias, 1 drivers
+v000002362f875b60_0 .net *"_ivl_2", 0 0, L_000002362f878e80;  1 drivers
+v000002362f875c00_0 .net *"_ivl_6", 0 0, L_000002362f8743a0;  1 drivers
+v000002362f872f00_0 .net *"_ivl_8", 0 0, L_000002362f874230;  1 drivers
+    .scope S_000002362f9abdc0;
+T_0 ;
+    %vpi_call 2 11 "$dumpfile", "prioridade_tb.vcd" {0 0 0};
+    %vpi_call 2 12 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002362f9abdc0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002362f872fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002362f8730e0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002362f872fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002362f8730e0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002362f872fa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002362f8730e0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002362f872fa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002362f8730e0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002362f872fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002362f8730e0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002362f872fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002362f8730e0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002362f872fa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002362f8730e0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002362f872fa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002362f8730e0_0, 0, 1;
+    %delay 20, 0;
+    %vpi_call 2 23 "$display", "Teste completo" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "prioridade_tb.v";
+    "./prioridade_gate.v";
