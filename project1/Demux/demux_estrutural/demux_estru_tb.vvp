@@ -1,0 +1,74 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "c:\iverilog\lib\ivl\system.vpi";
+:vpi_module "c:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "c:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "c:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "c:\iverilog\lib\ivl\va_math.vpi";
+S_000001996c68a180 .scope module, "demux_estru_tb" "demux_estru_tb" 2 4;
+ .timescale -9 -9;
+v000001996c552500_0 .var "D", 0 0;
+v000001996c552780_0 .var "S", 1 0;
+v000001996c551ce0_0 .net "Y", 3 0, L_000001996c552820;  1 drivers
+S_000001996c68a310 .scope module, "uut" "demux_estru" 2 10, 3 1 0, S_000001996c68a180;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "D";
+    .port_info 1 /INPUT 2 "S";
+    .port_info 2 /OUTPUT 4 "Y";
+L_000001996c68cd30 .functor NOT 1, L_000001996c552000, C4<0>, C4<0>, C4<0>;
+L_000001996c687290 .functor NOT 1, L_000001996c5525a0, C4<0>, C4<0>, C4<0>;
+L_000001996c687540 .functor AND 1, L_000001996c68cd30, L_000001996c687290, v000001996c552500_0, C4<1>;
+L_000001996c68ba20 .functor AND 1, L_000001996c5528c0, L_000001996c687290, v000001996c552500_0, C4<1>;
+L_000001996c686ea0 .functor AND 1, L_000001996c68cd30, L_000001996c5520a0, v000001996c552500_0, C4<1>;
+L_000001996c59f820 .functor AND 1, L_000001996c552960, L_000001996c551a60, v000001996c552500_0, C4<1>;
+v000001996c68bee0_0 .net "D", 0 0, v000001996c552500_0;  1 drivers
+v000001996c547400_0 .net "S", 1 0, v000001996c552780_0;  1 drivers
+v000001996c5474a0_0 .net "Y", 3 0, L_000001996c552820;  alias, 1 drivers
+v000001996c68a4a0_0 .net *"_ivl_10", 0 0, L_000001996c68ba20;  1 drivers
+v000001996c68a540_0 .net *"_ivl_13", 0 0, L_000001996c5528c0;  1 drivers
+v000001996c5521e0_0 .net *"_ivl_15", 0 0, L_000001996c686ea0;  1 drivers
+v000001996c552320_0 .net *"_ivl_18", 0 0, L_000001996c5520a0;  1 drivers
+v000001996c552460_0 .net *"_ivl_2", 0 0, L_000001996c552000;  1 drivers
+v000001996c552140_0 .net *"_ivl_20", 0 0, L_000001996c59f820;  1 drivers
+v000001996c5523c0_0 .net *"_ivl_24", 0 0, L_000001996c552960;  1 drivers
+v000001996c552640_0 .net *"_ivl_26", 0 0, L_000001996c551a60;  1 drivers
+v000001996c5526e0_0 .net *"_ivl_5", 0 0, L_000001996c5525a0;  1 drivers
+v000001996c551c40_0 .net *"_ivl_7", 0 0, L_000001996c687540;  1 drivers
+v000001996c552280_0 .net "n_d0", 0 0, L_000001996c68cd30;  1 drivers
+v000001996c551f60_0 .net "n_d1", 0 0, L_000001996c687290;  1 drivers
+L_000001996c552000 .part v000001996c552780_0, 0, 1;
+L_000001996c5525a0 .part v000001996c552780_0, 1, 1;
+L_000001996c5528c0 .part v000001996c552780_0, 0, 1;
+L_000001996c5520a0 .part v000001996c552780_0, 1, 1;
+L_000001996c552820 .concat8 [ 1 1 1 1], L_000001996c687540, L_000001996c68ba20, L_000001996c686ea0, L_000001996c59f820;
+L_000001996c552960 .part v000001996c552780_0, 0, 1;
+L_000001996c551a60 .part v000001996c552780_0, 1, 1;
+    .scope S_000001996c68a180;
+T_0 ;
+    %vpi_call 2 13 "$dumpfile", "demux_estru_tb.vcd" {0 0 0};
+    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001996c68a180 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001996c552500_0, 0, 1;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v000001996c552780_0, 0, 2;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v000001996c552780_0, 0, 2;
+    %delay 20, 0;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000001996c552780_0, 0, 2;
+    %delay 20, 0;
+    %pushi/vec4 3, 0, 2;
+    %store/vec4 v000001996c552780_0, 0, 2;
+    %delay 20, 0;
+    %vpi_call 2 22 "$display", "Teste completo" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "demux_estru_tb.v";
+    "./demux_estru.v";
